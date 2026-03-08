@@ -1,10 +1,12 @@
-delta_t: 0.25
-max_step: 8
-max_simulation_time: 20
+delta_t: 0.20
+max_step: 6
+max_vehicle_num: 3
+# max_simulation_time: 20
+max_simulation_time: 25
 
 # environment
-map_size: 25
-lane_width: 4
+map_size: 50
+lane_width: 8
 
 # mcts parameters
 computation_budget: 15000
@@ -23,62 +25,127 @@ is_show_predict_traj: false
 
 vehicle_list:
   vehilce_0:
-    level: 1
+    level: 2
     init:
       x:
-        min: 2
-        max: 2
+        min: 4
+        max: 4
       y:
-        min: -20
+        min: -12
         max: -12
       yaw: 1.5707963
       v:
-        min: 3
-        max: 5
+        min: 10
+        max: 10
     target:
-      x: -18
-      y: 2
-      yaw: 3.1415926
+      x: 2
+      y: 50
+      yaw: 1.5707963
     text:
       x: 10
       y: -15
+    is_ego : false
   vehilce_1:
-    level: 0
+    level: 2
     init:
       x:
-        min: -2
-        max: -2
+        min: -4
+        max: -4
       y:
-        min: 12
-        max: 20
-      yaw: -1.5707963
+        min: -20
+        max: -20
+      yaw: 1.5707963
       v:
-        min: 3
-        max: 5
+        min: 10
+        max: 10
     target:
-      x: -2
-      y: -18
-      yaw: -1.5707963
+      x: 2
+      y: 30
+      yaw: 1.5707963
     text:
       x: 10
       y: 15
-  vehilce_2:
-    level: 1
-    init:
-      x:
-        min: -20
-        max: -12
-      y:
-        min: -2
-        max: -2
-      yaw: 0
-      v:
-        min: 3
-        max: 5
-    target:
-      x: 18
-      y: -2
-      yaw: 0
-    text:
-      x: -20
-      y: -15
+    is_ego : true
+  # vehilce_2:
+  #   level: 2
+  #   init:
+  #     x:
+  #       min: 2
+  #       max: 2
+  #     y:
+  #       min: -18
+  #       max: -18
+  #     yaw: 1.5707963
+  #     v:
+  #       min: 5
+  #       max: 5
+  #   target:
+  #     x: 2
+  #     y: 50
+  #     yaw: 1.5707963
+  #   text:
+  #     x: -43
+  #     y: -15
+  #   is_ego : false
+  # vehilce_3:
+  #   level: 1
+  #   init:
+  #     x:
+  #       min: 2
+  #       max: 2
+  #     y:
+  #       min: -24
+  #       max: -24
+  #     yaw: 1.5707963
+  #     v:
+  #       min: 5
+  #       max: 5
+  #   target:
+  #     x: 2
+  #     y: 50
+  #     yaw: 1.5707963
+  #   text:
+  #     x: -43
+  #     y: 15
+  #   is_ego : false
+  # vehilce_3:
+  #   level: 1
+  #   init:
+  #     x:
+  #       min: 2
+  #       max: 2
+  #     y:
+  #       min: -6
+  #       max: -6
+  #     yaw: 1.5707963
+  #     v:
+  #       min: 3
+  #       max: 5
+  #   target:
+  #     x: 10
+  #     y: -2
+  #     yaw: 0
+  #   text:
+  #     x: -20
+  #     y: 15     
+  #  vehilce_4:
+  #   level: 1
+  #   init:
+  #     x:
+  #       min: -20
+  #       max: -12
+  #     y:
+  #       min: -2
+  #       max: -2
+  #     yaw: 0
+  #     v:
+  #       min: 3
+  #       max: 5
+  #   target:
+  #     x: 18
+  #     y: -2
+  #     yaw: 0
+  #   text:
+  #     x: -20
+  #     y: -15   
+

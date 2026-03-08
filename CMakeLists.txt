@@ -3,7 +3,7 @@ project(DecisionMaking)
 
 set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_FLAGS "-std=c++17 -O2")
-
+# set(CMAKE_BUILD_TYPE DEBUG)
 
 add_library(matplotlib_cpp INTERFACE)
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
@@ -29,6 +29,11 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 file(GLOB SOURCE_FILES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 set(3RDPARTY matplotlib_cpp fmt::fmt spdlog::spdlog yaml-cpp::yaml-cpp)
+
+# 删除env的编译
+list(REMOVE_ITEM SOURCE_FILES "${CMAKE_SOURCE_DIR}/src/env.cpp")
+list(REMOVE_ITEM SOURCE_FILES "${CMAKE_SOURCE_DIR}/src/test_rl_env.cpp")
+list(REMOVE_ITEM SOURCE_FILES "${CMAKE_SOURCE_DIR}/src/DQNEvaluator.cpp")
 
 add_executable(decision_making ${SOURCE_FILES})
 target_link_libraries(decision_making ${3RDPARTY})

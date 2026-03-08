@@ -1,5 +1,6 @@
 delta_t: 0.25
 max_step: 8
+max_vehicle_num: 3
 max_simulation_time: 20
 
 # environment

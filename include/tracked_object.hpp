@@ -8,32 +8,28 @@
 #include "utils.hpp"
 
 struct PredictTraj {
-    double confidence;
-    StateList traj; 
+  double confidence;
+  StateList traj;
 };
-
 
 class TrackedObject {
 private:
-    /* data */
+  /* data */
 public:
-    std::string name;
-    State state;
-    State target;
-    std::vector<PredictTraj> predict_trajs;
+  std::string name;
+  State state;
+  State target;
+  std::vector<PredictTraj> predict_trajs;
 
-    TrackedObject() : name("") {
-        state = State(0, 0, 0, 0);
-        predict_trajs.clear();
-    }
-    TrackedObject(std::string _name) : name(_name) {
-        state = State(0, 0, 0, 0);
-        predict_trajs.clear();
-    }
-    ~TrackedObject() {
-
-    }
+  TrackedObject() : name("") {
+    state = State(0, 0, 0, 0, 0, 0, 0, 0);
+    predict_trajs.clear();
+  }
+  TrackedObject(std::string _name) : name(_name) {
+    state = State(0, 0, 0, 0, 0, 0, 0, 0);
+    predict_trajs.clear();
+  }
+  ~TrackedObject() {}
 };
-
 
 #endif
