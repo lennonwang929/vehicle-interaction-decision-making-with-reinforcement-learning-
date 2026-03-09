@@ -12,7 +12,7 @@ DQNAgent::DQNAgent(int state_dim, int action_dim, const std::string &reward_log_
     : state_dim_(state_dim),
       action_dim_(action_dim), alpha_(0.05),
       gamma_(0.95),
-      epsilon_(0.5),
+      epsilon_(0.3),
       rng_(std::random_device{}()),
       reward_log_path_(reward_log_path),
       append_mode_(append)
@@ -153,17 +153,17 @@ void DQNAgent::observe(const std::vector<double> &state,
         episode_count_++;
         // 衰减epsilon，逐渐减少探索率，让智能体更多地利用学到的知识来选择动作，而不是随机选择动作。这里设置了一个最小值0.05，确保智能体仍然有一定的探索能力。
         // epsilon_ = std::max(0.05, epsilon_ * 0.995);
-        if (episode_count_ < 200)
+        if (episode_count_ < 3000)
         {
-            epsilon_ = 0.2;
+            epsilon_ = 0.3;
         }
-        else if (episode_count_ < 600)
+        else if (episode_count_ < 5000)
         {
             epsilon_ = 0.2;
         }
         else
         {
-            epsilon_ = 0.3;
+            epsilon_ = 0.1;
         }
 
         // Save episode reward before reset
